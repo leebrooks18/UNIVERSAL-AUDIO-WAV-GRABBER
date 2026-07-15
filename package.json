@@ -2,7 +2,14 @@
   "name": "universal-audio-wav-grabber-api",
   "version": "0.1.0",
   "type": "module",
+  "main": "api/login.js",
   "engines": {
     "node": ">=18"
+  },
+  "scripts": {
+    "build": "echo \"skip build\""
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.1"
   }
 }
