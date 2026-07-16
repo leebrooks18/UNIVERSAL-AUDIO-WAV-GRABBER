@@ -1,3 +1,0 @@
-Redeploy trigger: 2026-07-15T18:33:00Z
-
-Updated to trigger a production redeploy.
