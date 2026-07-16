@@ -1,13 +1,18 @@
 {
-  "name": "universal-audio-wav-grabber-api",
+  "name": "universal-audio-wav-grabber",
   "version": "0.1.0",
+  "description": "Convert Spotify / Apple Music / YouTube URLs to WAV/MP3/FLAC/M4A with advanced encoding presets",
   "type": "module",
-  "main": "api/login.js",
+  "bin": {
+    "universal-audio": "./bin/universal-audio.js"
+  },
   "engines": {
     "node": ">=18"
   },
   "scripts": {
     "build": "echo \"skip build\""
   },
-  "dependencies": {}
+  "dependencies": {
+    "commander": "^12.1.0"
+  }
 }
