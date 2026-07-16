@@ -28,6 +28,33 @@ Notes for production URIs:
 - Production redirect URIs must use HTTPS. Spotify will reject non-HTTPS production redirects.
 - Use the exact hostname and path you will deploy to. Do not use wildcards.
 
+## Installation (CLI)
+
+This project is a Node.js command-line tool. It shells out to [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) and
+[`ffmpeg`](https://ffmpeg.org/), so both must be installed and available on your `PATH`.
+
+```bash
+npm install
+npm link
+```
+
+This exposes the `universal-audio` command. Run it directly with `node bin/universal-audio.js` instead if you'd
+rather not link it globally.
+
+## Converting a URL to audio
+
+```bash
+universal-audio convert "https://open.spotify.com/track/..." -f wav -o output
+```
+
+Options:
+
+- `-f, --format <format>` — `wav` (default), `mp3`, `flac`, or `m4a`
+- `-b, --bitrate <bitrate>` — bitrate for lossy formats, e.g. `320k`
+- `-o, --output <output>` — output filename without extension (default: `output`)
+- `--keep-intermediate` — keep the intermediate downloaded file
+- `--no-tag` — skip metadata tagging
+
 ## Quick PKCE Authorization Example (CLI)
 
 1. Register the Redirect URIs above in your Spotify Dashboard for your app.
@@ -40,7 +67,7 @@ export SPOTIFY_CLIENT_ID="your-client-id"
 3. Run the CLI auth flow (example uses port 8080):
 
 ```bash
-python -m universal_audio.cli auth --port 8080
+universal-audio auth --port 8080
 ```
 
 4. The CLI will open a browser to Spotify's consent screen. After you authenticate and consent, Spotify will redirect to:
